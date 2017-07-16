@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,12 +25,13 @@ public class Hotel {
     private List<Review> reviewList;
 
 
-    protected Hotel() { this.reviewList = new ArrayList<>();}
+    public Hotel() {
+    }
 
-    public Hotel(String name, int pricePerNight, Address adress, List<Review> reviewList) {
+    public Hotel(String name, int pricePerNight, Address address, List<Review> reviewList) {
         this.name = name;
         this.pricePerNight = pricePerNight;
-        this.address = adress;
+        this.address = address;
         this.reviewList = reviewList;
     }
 
@@ -39,19 +39,39 @@ public class Hotel {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPricePerNight() {
         return pricePerNight;
     }
 
-    public Address getAdress() {
+    public void setPricePerNight(int pricePerNight) {
+        this.pricePerNight = pricePerNight;
+    }
+
+    public Address getAddress() {
         return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public List<Review> getReviewList() {
         return reviewList;
+    }
+
+    public void setReviewList(List<Review> reviewList) {
+        this.reviewList = reviewList;
     }
 }

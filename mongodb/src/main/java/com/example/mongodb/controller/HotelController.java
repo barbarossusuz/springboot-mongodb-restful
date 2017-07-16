@@ -1,9 +1,9 @@
 package com.example.mongodb.controller;
 
 
-import com.example.mongodb.repository.HotelRepository;
 import com.example.mongodb.entity.Hotel;
 import com.example.mongodb.entity.QHotel;
+import com.example.mongodb.repository.HotelRepository;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,16 +29,17 @@ public class HotelController {
         return hotels;
     }
 
+    //save vs insert = save will update on given id if there is a match with object with given id
     @PutMapping
     public void update(@RequestBody Hotel hotel){
-        this.hotelRepository.insert(hotel);
+        this.hotelRepository.save(hotel);
     }
     @PostMapping
     public void create(@RequestBody Hotel hotel){
-        this.hotelRepository.save(hotel);
+        this.hotelRepository.insert(hotel);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") String id){
         this.hotelRepository.delete(id);
     }
@@ -68,6 +69,7 @@ public class HotelController {
     public List<Hotel> getByCountry(@PathVariable("country") String country){
         // create a query class (QHotel)
         QHotel qHotel = new QHotel("hotel");
+
 
         // using the query class we can create the filters
         BooleanExpression filterByCountry = qHotel.address.country.eq(country);
