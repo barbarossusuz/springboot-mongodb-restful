@@ -80,8 +80,8 @@ public class HotelController {
         return hotels;
     }
 
-    // find hotels with pricePerNight given value and at least 1 reviews with a rating greater than 7
-//    localhost:8080/priceandrating with body json
+    // find hotels with pricePerNight with given value and at least 1 reviews with a rating greater than with given value
+    //    localhost:8080/priceandrating with body json
 //    {
 //        "maxPrice" : 300,
 //        "minRating" : 6
