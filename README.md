@@ -21,5 +21,5 @@ Basic crud operation and some query operations like;
 
 
 #### Mongodb2
-Image upload using Gridfs with restapi.
+Image operations using Gridfs with restapi.
 Upload, delete and download image from mangodb.
